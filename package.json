@@ -1,0 +1,23 @@
+{
+    "name": "shop-parser",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "directories": {
+        "test": "tests"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "watch:css": "sass --watch --update --style=expanded public/assets/scss/admin.scss public/css/admin.css",
+        "build:css": "sass --style=compressed public/assets/scss/admin.scss public/css/admin.css"
+    },
+    "author": "Birca Vadim <wladimir0015@gmail.com>",
+    "license": "ISC",
+    "dependencies": {
+    },
+    "devDependencies": {
+        "sass": "^1.44.0",
+        "sass-loader": "^12.3.0",
+        "webpack": "^5.64.4"
+    }
+}

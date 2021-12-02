@@ -1,0 +1,10 @@
+easy_admin:
+    list:
+        actions:
+            - { name: 'restock', icon: 'plus-square' }
+
+    entities:
+        Product:
+        User:
+            list:
+                actions: [ '-restock' ]
