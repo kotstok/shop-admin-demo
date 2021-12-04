@@ -1,1 +1,19 @@
-# todo:
+version: "3.4"
+
+services:
+    shop-admin:
+        image: webdevops/php-apache-dev:7.4
+        build:
+            context: .
+            args:
+                SYMFONY_VERSION: ${SYMFONY_VERSION:-}
+                STABILITY: ${STABILITY:-stable}
+        restart: unless-stopped
+        volumes:
+            - ../../:/app/
+            - ./httpd/vhost.conf:/opt/docker/etc/httpd/vhost.conf
+        healthcheck:
+            interval: 10s
+            timeout: 3s
+            retries: 3
+            start_period: 30s
