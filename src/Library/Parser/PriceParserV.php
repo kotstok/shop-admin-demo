@@ -21,7 +21,7 @@ final class PriceParserV extends MainParser
     private function parseHtml(Crawler $dom): ?float
     {
         $amount = $dom->innerText();
-        $sup = $dom->children('sups')->getNode(0);
+        $sup = $dom->children('sup')->getNode(0);
         if (null === $sup) {
             return null;
         }
