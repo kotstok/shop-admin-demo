@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Crud;
+namespace App\Controller\Admin;
 
 use App\Entity\Products;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
@@ -25,7 +25,13 @@ class ProductsCrudController extends AbstractCrudController
 
     public function configureActions(Actions $actions): Actions
     {
-        return $actions->add(Crud::PAGE_INDEX, Action::DETAIL);
+        $updatePriceButton = Action::new('update_price', 'Update Price')
+            ->linkToCrudAction('index');
+
+        return $actions
+            ->add(Crud::PAGE_INDEX, Action::DETAIL)
+            ->add(Crud::PAGE_INDEX, $updatePriceButton)
+            ;
     }
 
     public function configureFields(string $pageName): iterable
@@ -42,5 +48,14 @@ class ProductsCrudController extends AbstractCrudController
     public function configureAssets(Assets $assets): Assets
     {
         return $assets->addCssFile('css/admin.css');
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setFormThemes([
+                'admin/form_theme.html.twig',
+                '@EasyAdmin/crud/form_theme.html.twig',
+            ]);
     }
 }

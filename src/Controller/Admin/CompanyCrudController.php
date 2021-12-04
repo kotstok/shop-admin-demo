@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Crud;
+namespace App\Controller\Admin;
 
 use App\Entity\Company;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
